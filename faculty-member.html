@@ -356,6 +356,82 @@
 .mega-section:last-child {
   border-right: none; /* آخری والے پر لائن نہ ہو */
 }
+/* HAMBURGER BUTTON */
+.hamburger {
+right: 20px; 
+position: absolute;
+ display: none;
+  font-size: 28px;
+  color: #0b2d6b;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* SHOW HAMBURGER ON MOBILE */
+@media (max-width: 992px) {
+  .hamburger { display: block; }
+  .navbar-menu { display: none; }
+}
+
+/* MOBILE SLIDE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+  padding: 30px 20px;
+  transition: right 0.4s ease;
+  z-index: 2000;
+}
+
+.mobile-menu ul {
+  list-style: none;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  color: #0b2d6b;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.close-btn {
+  font-size: 25px;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #0b2d6b;
+}
+
+/* DROPDOWN (MOBILE) */
+.dropdown-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #0b2d6b;
+  border-bottom: 1px solid #e3e3e3;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  padding-left: 15px;
+}
+.mobile-menu a.active,
+.mobile-menu .dropdown-btn.active {
+  color: #d22b2b;        /* highlight color */
+  font-weight: 600;      /* bold text */
+}
+
     /* HERO SECTION */
     .faculty-hero {
       background: url('img/history\ \ .jpg') center/cover no-repeat;
@@ -464,22 +540,26 @@
       color: #555;
     }
 
+
     footer {
   background-color: #111;
   color: #eee;
   font-family: "Poppins", sans-serif;
   line-height: 1.7;
+  width: 100%;
 }
 
-/* Footer Container */
+/* ===== FOOTER CONTAINER ===== */
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 40px;
   padding: 80px 60px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Column Titles */
+/* ===== COLUMN TITLES ===== */
 .footer-column h3 {
   font-size: 18px;
   color: #fff;
@@ -487,17 +567,16 @@
   position: relative;
 }
 
-/* Underline for titles */
 .footer-column h3::after {
   content: "";
   display: block;
-  width: 100px;
+  width: 80px;
   height: 3px;
-  background: #ea2e2e; /* your blue-purple color */
+  background: #ea2e2e;
   margin-top: 8px;
 }
 
-/* Column text and links */
+/* ===== TEXT & LINKS ===== */
 .footer-column p {
   color: #ccc;
   font-size: 14px;
@@ -512,16 +591,17 @@
 }
 
 .footer-column a:hover {
-  color:white;
+  color: white;
+  transform: translateX(3px);
 }
 
-/* Logo */
+/* ===== LOGO ===== */
 .footer-logo {
   width: 140px;
   margin-bottom: 20px;
 }
 
-/* Lists */
+/* ===== LISTS ===== */
 .footer-column ul {
   list-style: none;
 }
@@ -530,7 +610,7 @@
   margin-bottom: 8px;
 }
 
-/* Footer Bottom */
+/* ===== BOTTOM BAR ===== */
 .footer-bottom {
   background: #0a0a0a;
   border-top: 1px solid #222;
@@ -539,12 +619,18 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* Social Icons */
+.footer-bottom p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* ===== SOCIAL ICONS ===== */
 .social-icons a {
-  color:rgb(58, 170, 58);
-  font-size: 16px;
+  color: rgb(58, 170, 58);
+  font-size: 18px;
   margin-left: 20px;
   transition: 0.3s;
 }
@@ -554,16 +640,48 @@
   transform: scale(1.2);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ===== TABLET RESPONSIVE ===== */
+@media (max-width: 992px) {
   .footer-container {
-    padding: 60px 30px 40px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 60px 40px 40px;
+  }
+
+  .footer-column h3::after {
+    width: 60px;
+  }
+
+  .social-icons a {
+    margin-left: 15px;
+    font-size: 17px;
+  }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+    padding: 50px 25px 30px;
+  }
+
+  .footer-column h3::after {
+    margin: 8px auto 0;
   }
 
   .footer-bottom {
     flex-direction: column;
     text-align: center;
-    gap: 15px;
+    padding: 20px 30px;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    margin: 0 12px;
   }
 }
 
@@ -572,6 +690,7 @@
 </head>
 
 <body>
+
   <!-- TOP BAR -->
   <section class="topbar">
     <div class="container">
@@ -609,6 +728,75 @@
           <span class="college-tagline">Inspiring Minds, Building Futures</span>
         </div>
       </div>
+      <!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="close-btn" onclick="closeMenu()">
+    <i class="fas fa-times"></i>
+  </div>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+
+    <li>
+      <button class="dropdown-btn">Academics ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="metric.html">Matric</a></li>
+        <li><a href="intermediate.html">Intermediate</a></li>
+        <li><a href="undergraduate.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn">Admissions ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="application-login.html">Apply Online</a></li>
+        <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
+        <li><a href="fee-structure.html">Fee Structures</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn">Faculty ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="matric-faculty.html">Matric</a></li>
+        <li><a href="inter-faculty.html">Intermediate</a></li>
+        <li><a href="undergraduate-faculty.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li><a href="life-at-NGC.html">Life at NGC</a></li>
+    <li>
+      <button class="dropdown-btn">About Us ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="our-history.html">Our History</a></li>
+        <li><a href="massege-director.html"> Massegege from the Director</a></li>
+      </ul>
+    </li>    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</div>
+
+<!-- HAMBURGER BUTTON (MOBILE) -->
+<div class="hamburger" onclick="openMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+<script>
+  function openMenu() {
+    document.getElementById("mobileMenu").style.right = "0";
+  }
+
+  function closeMenu() {
+    document.getElementById("mobileMenu").style.right = "-280px";
+  }
+
+  // Dropdown Toggle (Mobile)
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  dropdownButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const dropdown = btn.nextElementSibling;
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
  <!-- MENU -->
  <ul class="navbar-menu">
   <li><a href="index.html">Home</a></li>
@@ -667,7 +855,33 @@
   </ul>
   </div>
 </nav>
+
 <script>
+
+
+// Mobile menu active link
+const mobileLinks = document.querySelectorAll('.mobile-menu a');
+const mobileDropdowns = document.querySelectorAll('.mobile-menu .dropdown-btn');
+const currentPage = window.location.pathname.split("/").pop(); // current file name
+
+// Links
+mobileLinks.forEach(link => {
+  if(link.getAttribute('href') === currentPage) {
+    link.classList.add('active');
+  }
+});
+
+// Dropdown buttons: highlight if any of its child links is active
+mobileDropdowns.forEach(btn => {
+  const dropdown = btn.nextElementSibling;
+  if(dropdown) {
+    const activeChild = dropdown.querySelector('a.active');
+    if(activeChild) {
+      btn.classList.add('active');
+    }
+  }
+});
+
   const currentLocation = window.location.href;
   const menuItems = document.querySelectorAll('.navbar-menu a');
 
@@ -677,6 +891,7 @@
     }
   });
 </script>
+
   <!-- HEADER SECTION -->
   <header class="faculty-hero">
     <div class="overlay">
@@ -772,69 +987,66 @@
       });
     });
   </script>
-  <!-- Footer Start -->
-  <footer class="footer">
-    <div class="footer-container">
-  
-      <!-- Column 1: Contact Info -->
-      <div class="footer-column">
-        <img src="img/logo-footer.jpg" alt="NGC Logo" class="footer-logo">
-        <p>
-          Toba Tek Singh District, Punjab, Pakistan
-        </p>
-        <p>
-          +92 30751297<br>
-          <a href="mailto:info@ucl.edu.pk">info@ngc.edu.pk</a><br>
-          <a href="mailto:admissions@ucl.edu.pk">admissions@ngc.edu.pk</a>
-        </p>
-      </div>
-  
-      <!-- Column 2: Our Campus -->
-      <div class="footer-column">
-        <h3>Our Campus</h3>
-        <ul>
-          <li><a href="massege-director.html">Director's Message</a></li>
-          <li><a href="our-campus.html#library">Libraries</a></li>
-          <li><a href="our-campus.html#sports">Sports Facilities</a></li>
-          <li><a href="computer-lab.html">Computer Labs</a></li>
-          <li><a href="science-lab.html">Science Labs</a></li>
-        </ul>
-      </div>
-  
-      <!-- Column 3: Life at UCL -->
-      <div class="footer-column">
-        <h3>Life at NGC</h3>
-        <ul>
-          <li><a href="life-at-NGC.html#Welfare Society">NGC Welfare Society</a></li>
-          <li><a href="life-at-NGC.html#Sports Society">NGC Sports Society</a></li>
-          <li><a href="life-at-ucl.html#adventure">NGC Adventure Society</a></li>
-        </ul>
-      </div>
-  
-      <!-- Column 4: Academics -->
-      <div class="footer-column">
-        <h3>Academics</h3>
-        <ul>
-          <li><a href="timetable.html">Timetables</a></li>
-          <li><a href="calendar.html">Calendar</a></li>
-          <li><a href="application-login.html" target="_blank">Apply for Admissions</a></li>
-        </ul>
-      </div>
-  
+ <!-- ===== FOOTER START ===== -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Column 1 -->
+    <div class="footer-column">
+      <img src="img/logo-footer.jpg" alt="NGC Logo" class="footer-logo">
+      <p>Toba Tek Singh District, Punjab, Pakistan</p>
+      <p>
+        +92 30751297<br>
+        <a href="mailto:info@ngc.edu.pk">info@ngc.edu.pk</a><br>
+        <a href="mailto:admissions@ngc.edu.pk">admissions@ngc.edu.pk</a>
+      </p>
     </div>
-  
-    <!-- Copyright Area -->
-    <div class="footer-bottom">
-      <p>© 2024 Noshahi Group Of Colleges</p>
-  
-      <div class="social-icons">
-        <a href="https://www.facebook.com/UCLLahore/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.linkedin.com/company/university-college-lahore/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/ucl_universalcollegelahore" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      </div>
+
+    <!-- Column 2 -->
+    <div class="footer-column">
+      <h3>Our Campus</h3>
+      <ul>
+        <li><a href="massege-director.html">Director's Message</a></li>
+        <li><a href="our-campus.html#library">Libraries</a></li>
+        <li><a href="our-campus.html#sports">Sports Facilities</a></li>
+        <li><a href="computer-lab.html">Computer Labs</a></li>
+        <li><a href="science-lab.html">Science Labs</a></li>
+      </ul>
     </div>
-  </footer>
-  <!-- Footer End -->
+
+    <!-- Column 3 -->
+    <div class="footer-column">
+      <h3>Life at NGC</h3>
+      <ul>
+        <li><a href="life-at-NGC.html#Welfare Society">NGC Welfare Society</a></li>
+        <li><a href="life-at-NGC.html#Sports Society">NGC Sports Society</a></li>
+        <li><a href="life-at-NGC.html#adventure">NGC Adventure Society</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-column">
+      <h3>Academics</h3>
+      <ul>
+        <li><a href="timetable.html">Timetables</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="application-login.html" target="_blank">Apply for Admissions</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <p>© 2024 Noshahi Group Of Colleges</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/UCLLahore/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.linkedin.com/company/university-college-lahore/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/ucl_universalcollegelahore" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+<!-- ===== FOOTER END ===== -->
 
 </body>
 </html>

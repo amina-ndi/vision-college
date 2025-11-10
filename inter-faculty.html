@@ -356,6 +356,88 @@
 .mega-section:last-child {
   border-right: none; /* آخری والے پر لائن نہ ہو */
 }
+
+
+
+/* HAMBURGER BUTTON */
+.hamburger {
+right: 20px; 
+position: absolute;
+ display: none;
+  font-size: 28px;
+  color: #0b2d6b;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* SHOW HAMBURGER ON MOBILE */
+@media (max-width: 992px) {
+  .hamburger { display: block; }
+  .navbar-menu { display: none; }
+}
+
+/* MOBILE SLIDE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+  padding: 30px 20px;
+  transition: right 0.4s ease;
+  z-index: 2000;
+}
+
+.mobile-menu ul {
+  list-style: none;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  color: #0b2d6b;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.close-btn {
+  font-size: 25px;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #0b2d6b;
+}
+
+/* DROPDOWN (MOBILE) */
+.dropdown-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #0b2d6b;
+  border-bottom: 1px solid #e3e3e3;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  padding-left: 15px;
+}
+
+.mobile-menu a.active,
+.mobile-menu .dropdown-btn.active {
+  color: #d22b2b;        /* highlight color */
+  font-weight: 600;      /* bold text */
+}
+
+
+
     /* HERO SECTION */
     .hero {
       background: url('img/faculty1.jpg') center/cover no-repeat;
@@ -523,6 +605,71 @@
       line-height: 1.6;
     }
 
+    /* Faculty Grid Desktop Style */
+.faculty-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.teacher-card {
+  width: 45%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.teacher-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* ✅ Teacher Card Hover */
+.teacher-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ✅ MOBILE RESPONSIVE FIX */
+@media (max-width: 768px){
+  .teacher-card {
+    width: 100%;        /* 1 card per row */
+  }
+
+  .teacher-card h3 {
+    font-size: 18px;
+  }
+
+  .teacher-card p {
+    font-size: 14px;
+  }
+}
+
+/* ✅ Extra Small Devices Fix (very small screens) */
+@media (max-width: 480px){
+  .faculty-grid {
+    gap: 15px;
+  }
+
+  .teacher-card {
+    padding: 12px;
+  }
+
+  .teacher-card h3 {
+    font-size: 17px;
+  }
+
+  .teacher-card p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero h1 {
@@ -634,6 +781,41 @@
     gap: 15px;
   }
 }
+.footer-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Mobile Footer */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-icons a {
+    margin: 0 5px;
+  }
+}
 
 
   </style>
@@ -676,6 +858,75 @@
           <span class="college-tagline">Inspiring Minds, Building Futures</span>
         </div>
       </div>
+      <!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="close-btn" onclick="closeMenu()">
+    <i class="fas fa-times"></i>
+  </div>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+
+    <li>
+      <button class="dropdown-btn">Academics ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="metric.html">Matric</a></li>
+        <li><a href="intermediate.html">Intermediate</a></li>
+        <li><a href="undergraduate.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn">Admissions ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="application-login.html">Apply Online</a></li>
+        <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
+        <li><a href="fee-structure.html">Fee Structures</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn active">Faculty ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="matric-faculty.html">Matric</a></li>
+        <li><a href="inter-faculty.html" class="active">Intermediate</a></li>
+        <li><a href="undergraduate-faculty.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li><a href="life-at-NGC.html">Life at NGC</a></li>
+    <li>
+      <button class="dropdown-btn">About Us ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="our-history.html">Our History</a></li>
+        <li><a href="massege-director.html"> Massegege from the Director</a></li>
+      </ul>
+    </li>    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</div>
+
+<!-- HAMBURGER BUTTON (MOBILE) -->
+<div class="hamburger" onclick="openMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+<script>
+  function openMenu() {
+    document.getElementById("mobileMenu").style.right = "0";
+  }
+
+  function closeMenu() {
+    document.getElementById("mobileMenu").style.right = "-280px";
+  }
+
+  // Dropdown Toggle (Mobile)
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  dropdownButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const dropdown = btn.nextElementSibling;
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
  <!-- MENU -->
  <ul class="navbar-menu">
   <li><a href="index.html">Home</a></li>
@@ -744,6 +995,7 @@
     }
   });
 </script>
+
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="overlay">

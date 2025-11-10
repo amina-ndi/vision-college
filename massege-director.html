@@ -23,68 +23,74 @@
       line-height: 1.7;
     }
 
-/* ===== TOPBAR STYLING ===== */
-.topbar {
-  background: #0b2d6b; /* Dark Blue */
-  color: #fff;
-  font-size: 16px;
-  padding: 14px 0;
-  width: 100%;
-}
 
-.topbar-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 30px;
-  display: flex;
-  justify-content: space-between; /* left and right push */
-  align-items: center;
-}
+    /* TOPBAR STYLING */
+    .topbar {
+      background: #0b2d6b; /* Dark Blue */
+      color: #fff;
+      font-size: 16px; /* Bigger font */
+      padding: 14px 0; /* Bigger height */
+    }
 
-.topbar-left a,
-.topbar-right a {
-  color: #fff;
-  text-decoration: none;
-  margin-right: 25px;
-  transition: color 0.3s ease;
-}
+    .topbar .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
 
-.topbar-right a:last-child {
-  margin-right: 0;
-}
+    .topbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; /* Responsive for mobile */
+    }
 
-.topbar-left a i {
-  margin-right: 6px;
-  color: #36a2c9;
-}
+    .topbar-left a,
+    .topbar-right a {
+    
+      color: #fff;
+      margin-right: 25px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-.topbar-left a:hover,
-.topbar-right a:hover {
-  color: #36a2c9;
-}
+    .topbar-left a i {
+      margin-right: 8px;
+      font-size: 18px; /* Bigger icons */
+      color: #36a2c9; /* Light Blue hover */
 
-/* ✅ Right side fix */
-.topbar-right {
-  margin-left: auto;
-  display: flex;
-  justify-content: flex-end;
-  gap: 25px;
-}
+    }
 
-/* ✅ Responsive fix */
-@media (max-width: 768px) {
-  .topbar-wrapper {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-  }
-  .topbar-right {
-    justify-content: center;
-    margin-left: 0;
-  }
-}
+    .topbar-left a:hover,
+    .topbar-right a:hover {
+      color: #36a2c9; /* Light Blue hover */
 
+    }
+    .topbar-link:hover{
+      color: #fff;
+
+    }
+
+    .topbar-right a {
+      margin-left: 25px;
+      font-weight: 500;
+    }
+
+    /* Responsive (mobile view) */
+    @media (max-width: 768px) {
+      .topbar-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .topbar-left,
+      .topbar-right {
+        margin: 8px 0;
+      }
+      .topbar-right a {
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+    }
     
     /* ---------------- NAVBAR ---------------- */
     .navbar {
@@ -352,7 +358,81 @@
 }
 
 
+/* HAMBURGER BUTTON */
+.hamburger {
+right: 20px; 
+position: absolute; display: none;
+  font-size: 28px;
+  color: #0b2d6b;
+  cursor: pointer;
+  margin-left: auto;
+}
 
+/* SHOW HAMBURGER ON MOBILE */
+@media (max-width: 992px) {
+  .hamburger { display: block; }
+  .navbar-menu { display: none; }
+}
+
+/* MOBILE SLIDE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+  padding: 30px 20px;
+  transition: right 0.4s ease;
+  z-index: 2000;
+}
+
+.mobile-menu ul {
+  list-style: none;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  color: #0b2d6b;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.close-btn {
+  font-size: 25px;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #0b2d6b;
+}
+
+/* DROPDOWN (MOBILE) */
+.dropdown-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #0b2d6b;
+  border-bottom: 1px solid #e3e3e3;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  padding-left: 15px;
+}
+
+.mobile-menu a.active,
+.mobile-menu .dropdown-btn.active {
+  color: #d22b2b;        /* highlight color */
+  font-weight: 600;      /* bold text */
+}
 .director-section {
   padding: 60px 0;
   background: #fff;
@@ -592,109 +672,179 @@ footer {
 </style>
 </head>
 <body>
-<!-- TOP BAR -->
-<section class="topbar">
-  <div class="topbar-wrapper">
+   <!-- TOP BAR -->
+   <section class="topbar">
+    <div class="container">
+      <div class="topbar-content">
 
-    <!-- LEFT SIDE -->
-    <div class="topbar-left">
-      <a href="mailto:noshahidevelopersinc@gmail.com">
-        <i class="fas fa-envelope"></i> noshahidevelopersinc@gmail.com
-      </a>
-      <a href="tel:03075071297">
-        <i class="fas fa-phone-alt"></i> 0307 5071297
-      </a>
-    </div>
+        <!-- LEFT SIDE -->
+        <div class="topbar-left">
+          <a href="mailto:noshahidevelopersinc@gmail.com">
+            <i class="fas fa-envelope"></i> noshahidevelopersinc@gmail.com
+          </a>
+          <a href="tel:03075071297">
+            <i class="fas fa-phone-alt"></i> 0307 5071297
+          </a>
+        </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="topbar-right">
-      <a href="calendar.html">Calendar</a>
-      <a href="student-portal.html">Students Portal</a>
-    </div>
+        <!-- RIGHT SIDE -->
+        <div class="topbar-right">
+          <a href="calendar.html">Calendar</a>
+          <a href="student-portal.html">Students Portal</a>
+        </div>
 
-  </div>
-</section>
-
-
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="navbar-container">
-
-    <!-- LOGO -->
-    <div class="navbar-logo">
-      <img src="img/Noshahi Group of College logo.svg" alt="Logo">
-      <div>
-        <span class="college-name">Noshahi Group of Colleges</span>
-        <span class="college-tagline">Inspiring Minds, Building Futures</span>
       </div>
     </div>
-<!-- MENU -->
-<ul class="navbar-menu">
-<li><a href="index.html">Home</a></li>
-<li class="academics">
-<a href="#">Academics</a>
-<div class="mega-dropdown">
-  
+  </section>
 
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
 
-
- 
-  <div class="mega-section">
-    <a href="metric.html">Matric</a>
-    <a href="intermediate.html">Intermediate</a>
-    <a href="undergraduate.html">undergraduate</a>
-
+      <!-- LOGO -->
+      <div class="navbar-logo">
+        <img src="img/Noshahi Group of College logo.svg" alt="Logo">
+        <div>
+          <span class="college-name">Noshahi Group of Colleges</span>
+          <span class="college-tagline">Inspiring Minds, Building Futures</span>
+        </div>
+      </div>
+      <!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="close-btn" onclick="closeMenu()">
+    <i class="fas fa-times"></i>
   </div>
 
-  
+  <ul>
+    <li><a href="index.html">Home</a></li>
 
+    <li>
+      <button class="dropdown-btn">Academics ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="metric.html">Matric</a></li>
+        <li><a href="intermediate.html">Intermediate</a></li>
+        <li><a href="undergraduate.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn">Admissions ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="application-login.html">Apply Online</a></li>
+        <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
+        <li><a href="fee-structure.html">Fee Structures</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn">Faculty ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="matric-faculty.html">Matric</a></li>
+        <li><a href="inter-faculty.html">Intermediate</a></li>
+        <li><a href="undergraduate-faculty.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li><a href="life-at-NGC.html">Life at NGC</a></li>
+    <li>
+      <button class="dropdown-btn active">About Us ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="our-history.html">Our History</a></li>
+        <li><a href="massege-director.html" class="active"> Massegege from the Director</a></li>
+      </ul>
+    </li>    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
 </div>
+
+<!-- HAMBURGER BUTTON (MOBILE) -->
+<div class="hamburger" onclick="openMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+<script>
+  function openMenu() {
+    document.getElementById("mobileMenu").style.right = "0";
+  }
+
+  function closeMenu() {
+    document.getElementById("mobileMenu").style.right = "-280px";
+  }
+
+  // Dropdown Toggle (Mobile)
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  dropdownButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const dropdown = btn.nextElementSibling;
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
+ <!-- MENU -->
+ <ul class="navbar-menu">
+  <li><a href="index.html">Home</a></li>
+  <li class="academics">
+  <a href="#">Academics</a>
+  <div class="mega-dropdown">
+    
+ 
+
+
+   
+    <div class="mega-section">
+      <a href="metric.html">Matric</a>
+      <a href="intermediate.html">Intermediate</a>
+      <a href="undergraduate.html">undergraduate</a>
+
+    </div>
+
+    
+
+  </div>
 </li>
 
-   <!-- Admissions Dropdown -->
-   <li>
-    <a href="#">Admissions</a>
-    <ul class="dropdown">
-      <li><a href="application-login.html">Apply Online</a></li>
-      <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
-      <li><a href="fee-structure.html">Fee Structures</a></li>
-    </ul>
-  </li>
+     <!-- Admissions Dropdown -->
+     <li>
+      <a href="#">Admissions</a>
+      <ul class="dropdown">
+        <li><a href="application-login.html">Apply Online</a></li>
+        <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
+        <li><a href="fee-structure.html">Fee Structures</a></li>
+      </ul>
+    </li>
 
-  <!-- Faculty Dropdown -->
-  <li>
-    <a href="#">Faculty</a>
-    <ul class="dropdown">
-      <li><a href="matric-faculty.html">Matric</a></li>
-      <li><a href="inter-faculty.html">Intermediate</a></li>
-      <li><a href="undergraduate-faculty.html">undergraduate</a></li>
-    </ul>
-  </li>
+    <!-- Faculty Dropdown -->
+    <li>
+      <a href="#">Faculty</a>
+      <ul class="dropdown">
+        <li><a href="matric-faculty.html">Matric</a></li>
+        <li><a href="inter-faculty.html">Intermediate</a></li>
+        <li><a href="undergraduate-faculty.html">undergraduate</a></li>
+      </ul>
+    </li>
 
-  <li><a href="life-at-NGC.html">Life at NGC</a></li>
+    <li><a href="life-at-NGC.html">Life at NGC</a></li>
 
-  <!-- About Us Dropdown -->
-  <li>
-    <a href="#">About Us</a>
-    <ul class="dropdown">
-      <li><a href="our-history.html">Our History</a></li>
-      <li><a href="massege-director.html">Message from the Director</a></li>
-    </ul>
-  </li>
+    <!-- About Us Dropdown -->
+    <li>
+      <a href="#">About Us</a>
+      <ul class="dropdown">
+        <li><a href="our-history.html">Our History</a></li>
+        <li><a href="massege-director.html">Message from the Director</a></li>
+      </ul>
+    </li>
 
-  <li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  </div>
 </nav>
 <script>
-const currentLocation = window.location.href;
-const menuItems = document.querySelectorAll('.navbar-menu a');
+  const currentLocation = window.location.href;
+  const menuItems = document.querySelectorAll('.navbar-menu a');
 
-menuItems.forEach(link => {
-  if (link.href === currentLocation) {
-    link.classList.add('active');
-  }
-});
+  menuItems.forEach(link => {
+    if (link.href === currentLocation) {
+      link.classList.add('active');
+    }
+  });
 </script>
 <!-- ✅ Director Section -->
 <div class="director-section">

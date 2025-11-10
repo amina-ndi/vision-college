@@ -97,9 +97,10 @@
 }
 
 .login-box {
-  width: 1000%;
-  max-width: 980px;
+  width: 100%;
+  max-width: 450px; /* Best width */
 }
+
 
 .login-box h1 {
   text-align: center;
@@ -192,6 +193,65 @@ button:hover {
     padding: 20px;
   }
 }
+
+/* ===== RESPONSIVE FIX ===== */
+
+@media (max-width: 992px) {
+  main {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Image Section on Mobile */
+  .image-section {
+    height: 220px;
+    flex: unset;
+    width: 100%;
+  }
+
+  /* Form Section Full Width */
+  .login-form-container {
+    flex: unset;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .college-name {
+    font-size: 14px;
+  }
+
+  header {
+    height: 50px;
+    padding: 0 12px;
+  }
+
+  .header-left img {
+    width: 38px;
+  }
+
+  .header-right a {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .login-box h1 {
+    font-size: 22px;
+  }
+
+  input, button {
+    font-size: 14px;
+  }
+}
+
   </style>
 </head>
 <body>

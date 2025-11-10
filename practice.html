@@ -1,792 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Bar Example</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noshahi Group of Colleges</title>
 
-  <!-- Font Awesome (Icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Fontawesome CDN Link -->
- <!-- Font Awesome CDN -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
- 
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    /* TOPBAR STYLING */
-    .topbar {
-      background: #0b2d6b; /* Dark Blue */
-      color: #fff;
-      font-size: 16px; /* Bigger font */
-      padding: 14px 0; /* Bigger height */
-    }
+    /* ===== General Reset ===== */
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif;}
+    body {background-color: #fff; color: #333; line-height: 1.7;}
 
-    .topbar .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
+    /* ===== TOPBAR ===== */
+    .topbar {background: #0b2d6b; color: #fff; font-size: 16px; padding: 14px 0;}
+    .topbar .container {max-width: 1200px; margin: 0 auto; padding: 0 15px;}
+    .topbar-content {display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;}
+    .topbar-left a, .topbar-right a {color: #fff; margin-right: 25px; text-decoration: none; transition: color 0.3s ease;}
+    .topbar-left a i {margin-right: 8px; font-size: 18px; color: #36a2c9;}
+    .topbar-left a:hover, .topbar-right a:hover {color: #36a2c9;}
+    .topbar-right a {margin-left: 25px; font-weight: 500;}
 
-    .topbar-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap; /* Responsive for mobile */
-    }
-
-    .topbar-left a,
-    .topbar-right a {
-    
-      color: #36a2c9; /* Light Blue hover */
-      margin-right: 25px;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .topbar-left a i {
-      margin-right: 8px;
-      font-size: 18px; /* Bigger icons */
-      color: #36a2c9; /* Light Blue hover */
-
-    }
-
-    .topbar-left a:hover,
-    .topbar-right a:hover {
-      color: #fff;
-    }
-
-    .topbar-right a {
-      margin-left: 25px;
-      font-weight: 500;
-    }
-
-    /* Responsive (mobile view) */
     @media (max-width: 768px) {
-      .topbar-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .topbar-left,
-      .topbar-right {
-        margin: 8px 0;
-      }
-      .topbar-right a {
-        margin-left: 12px;
-        margin-right: 12px;
-      }
-    }
-     /* NAVBAR */
-     .navbar {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      z-index: 1000;
+      .topbar-content {flex-direction: column; text-align: center;}
+      .topbar-left, .topbar-right {margin: 8px 0;}
+      .topbar-right a {margin-left: 12px; margin-right: 12px;}
     }
 
-    .navbar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    /* ===== NAVBAR ===== */
+    .navbar {background-color: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 3px 8px rgba(0,0,0,0.1); width: 100%;}
+    .navbar-container {display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 10px 20px;}
 
-    /* LOGO */
-    .navbar-logo img {
-      height: 60px; /* Adjust as needed */
-    }
+    /* Logo */
+    .navbar-logo {display: flex; align-items: flex-start; gap: 10px;}
+    .navbar-logo img {width: 55px; height: 55px; object-fit: contain;}
+    .college-name {font-size: 20px; font-weight: 700; color: #0b2d6b; line-height: 1.1;}
+    .college-tagline {display: block; font-size: 12px; color: #d22b2b; margin-top: 2px; font-weight: 500;}
 
-    /* MENU */
-    .navbar-menu {
-      list-style: none;
-      display: flex;
-      align-items: center;
-    }
+    /* Menu */
+    .navbar-menu {list-style: none; display: flex; align-items: center;}
+    .navbar-menu li {position: relative;}
+    .navbar-menu > li {margin-left: 30px;}
+    .navbar-menu a {text-decoration: none; color:#0b2d6b; font-size: 17px; font-weight: 550; padding: 18px 0; display: block; transition: all 0.3s ease;}
+    .navbar-menu a.active {color: #fff; background:#0b2d6b; border-radius: 5px; padding: 8px 15px;}
+    .navbar-menu a:hover {background: rgba(255,255,255,0.1); border-radius: 5px;}
 
-    .navbar-menu li {
-      position: relative;
-    }
-    .navbar-menu > li {
-      margin-left: 30px;
-    }
+    /* Hover underline effect */
+    .navbar-menu > li > a::after {content: ""; position: absolute; width: 0%; height: 5px; bottom: 10px; left: 0; background-color:rgb(163, 40, 40); transition: width 0.3s;}
+    .navbar-menu > li > a:hover::after {width: 100%;}
 
-    .navbar-menu a {
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      font-weight: 500;
-      padding: 18px 0;
-      display: block;
-      transition: all 0.3s ease;
-    }
+    /* Dropdown */
+    .dropdown, .mega-dropdown {position: absolute; top: 100%; left: 50%; display: none; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-radius: 6px; z-index: 999;}
+    .navbar-menu li:hover .dropdown, .navbar-menu li:hover .mega-dropdown {display: block;}
+    .dropdown {min-width: 250px;}
+    .dropdown a {padding: 12px 20px; color: #333; font-size: 15px;}
+    .dropdown a:hover {color: rgb(163, 40, 40); background: #f5f5f5;}
+    .mega-dropdown {display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 15px 25px; min-width: 100px;}
+    .mega-dropdown a {display: block; padding: 6px 0; font-size: 15px; color: #333; text-decoration: none; transition: color 0.3s ease;}
+    .mega-dropdown a:hover {color: #0b2d6b;}
 
-    /* HOVER EFFECT - MAIN MENU */
-    .navbar-menu > li > a {
-      position: relative;
-    }
-
-    .navbar-menu > li > a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 5px; 
-      bottom: 10px;
-      left: 0;
-      background-color: red;
-      transition: width 0.3s;
-    }
-
-    .navbar-menu > li > a:hover {
-      color: rgb(163, 40, 40);
-    }
-
-    .navbar-menu > li > a:hover::after {
-      width: 100%;
-    }
-
-    /* DROPDOWN */
-    .dropdown {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-     background: #f5f5f5;
-      min-width: 250px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      display: none;
-     
-    }
-     /* Dropdown list style remove */
-   .dropdown {
-     list-style: none;
-     margin: 0;
-     padding: 0;
-    }
-  .dropdown li {
-  list-style: none;
-}
-
-    .dropdown li {
-      margin: 0;
-    }
-
-    .dropdown a {
-      padding: 12px 20px;
-      color: #333;
-      font-size: 15px;
-    }
-
-    .dropdown a:hover {
-      background: #f5f5f5;
-      color: blue; /* केवल color change होगा, line नहीं आएगी */
-    }
-
-    .navbar-menu li:hover .dropdown {
-      display: block;
-    }
-
-    /* Responsive (basic) */
+    /* Hamburger (mobile) */
+    .hamburger {display: none; font-size: 28px; cursor: pointer; color: #0b2d6b;}
     @media (max-width: 992px) {
-      .navbar-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .hamburger {display: block;}
       .navbar-menu {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        height: 100%;
+        width: 280px;
         flex-direction: column;
-        width: 100%;
+        background: #fff;
+        padding: 60px 20px;
+        box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+        transition: right 0.4s ease;
+        z-index: 2000;
       }
-      .navbar-menu > li {
-        margin-left: 0;
-        width: 100%;
-      }
-      .navbar-menu a {
-        padding: 12px 0;
-        width: 100%;
-      }
-      .dropdown {
-        position: static;
-        box-shadow: none;
-        width: 100%;
-      }
-      .dropdown a {
-        padding-left: 30px;
-      }
+      .navbar-menu.active {right: 0;}
+      .navbar-menu li {margin: 15px 0;}
+      .navbar-menu a {padding: 10px 0;}
+      .dropdown, .mega-dropdown {position: static; display: none; padding-left: 15px;}
+      .dropdown.active, .mega-dropdown.active {display: block;}
     }
-    /* Academics mega dropdown */
-.navbar-menu li.academics .mega-dropdown {
-  display: none;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  gap: 20px;
-  padding: 20px 30px;
-   min-width: 600px; /* large width for mega menu */
-   
-   
-}
 
-.navbar-menu li.academics:hover .mega-dropdown {
-  display: grid;
-}
+    /* Parallax, Contact, Footer, Social Sections (kept same) */
+    /* ... include your current parallax-section, contact-info-section, contact-section, map-section, social-section, footer styles here ... */
 
-.mega-dropdown li {
-  list-style: none;
-}
-
-.mega-dropdown h4 {
-  font-size: 16px;
-  font-weight: 400;
-  margin-bottom: 10px;
-  color: #0b2d6b; /* dark blue heading */
-}
-
-.mega-dropdown a {
-  display: block;
-  padding: 6px 0;
-  font-size: 15px;
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease, background 0.3s ease;
-}
-
-.mega-dropdown a:hover {
- 
-  color: blue; /* hover पर सिर्फ़ text color बदलेगा */
-}
-
-
-
-
-/* Mega Dropdown Container */
-.navbar-menu li.academics .mega-dropdown {
-  display: none;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  gap: 20px;
-  padding: 15px 25px;
-  min-width: 650px;
-  background: #f5f5f5;
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  border-radius: 6px;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  z-index: 999;
-}
-
-.navbar-menu li.academics:hover .mega-dropdown {
-  display: grid;
-}
-
-/* Each Column Section */
-.mega-section {
-  padding: 0 15px;
-  border-right: 1px solid #e0e0e0; /* Divider line */
-}
-
-.mega-section:last-child {
-  border-right: none; /* آخری والے پر لائن نہ ہو */
-}
-/* Main Wrapper */
-.ucl-page-title-wrap {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: left;
-}
-
-/* Transparent Header Substitute */
-.ucl-header-transparent-substitute {
-  height: 80px; /* adjust according to your header height */
-}
-
-/* Dark Overlay */
-.ucl-page-title-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-/* Gradient Bottom Effect */
-.ucl-page-title-bottom-gradient {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
-}
-
-/* Container */
-.ucl-page-title-container {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Content */
-.ucl-page-title-content {
-  padding-top: 400px;
-  padding-bottom: 60px;
-}
-
-/* Caption Text */
-.ucl-page-caption {
-  font-size: 21px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  margin-bottom: 10px;
-}
-
-/* Main Title */
-.ucl-page-title {
-  font-size: 40px;
-  font-weight: 700;
-  text-transform: none;
-  letter-spacing: 0px;
-  color: #fff;
-}
-
-/* Layout */
-.entrance-section {
-  display: flex;
-  justify-content: center;
-  padding: 60px 20px;
-  background: #f9f9f9;
-}
-
-.entrance-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  gap: 40px;
-}
-
-/* Left Content */
-.entrance-content {
-  flex: 1 1 70%;
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-.section-title {
-  font-size: 27px;
-  font-weight: 600;
-  color: #192f59;
-  margin-bottom: 15px;
-}
-
-.subheading {
-  font-size: 21px;
-  font-weight: 600;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-.red {
-  color: #D22B2B;
-}
-
-.divider {
-  width: 60px;
-  height: 3px;
-  background: #D22B2B;
-  margin-bottom: 20px;
-}
-
-.requirement-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 15px 0 30px;
-}
-
-.requirement-list li {
-  position: relative;
-  padding-left: 28px;
-  margin-bottom: 12px;
-  font-size: 17px;
-  color: #333;
-  text-align: justify;
-}
-
-.requirement-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #192f59;
-  font-size: 22px;
-}
-
-/* Sidebar */
-.entrance-sidebar {
-  flex: 1 1 28%;
-}
-
-.contact-box {
-  background: #192f59;
-  color: #fff;
-  padding: 35px;
-  border-radius: 10px;
-}
-
-.contact-box h3 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.contact-box .highlight {
-  color: #D22B2B;
-  font-size: 16px;
-}
-
-.contact-box p {
-  font-size: 15px;
-  margin-bottom: 15px;
-}
-
-.contact-box .timing {
-  color: #D22B2B;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.social-links a {
-  color: #D22B2B;
-  font-size: 18px;
-  margin-right: 12px;
-  transition: 0.3s;
-}
-
-.social-links a:hover {
-  color: #fff;
-}
-
-.apply-btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 25px;
-  background: linear-gradient(to right, #192f59, #D22B2B);
-  color: #fff;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.apply-btn:hover {
-  background: linear-gradient(to right, #D22B2B, #192f59);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .entrance-container {
-    flex-direction: column;
-  }
-  .entrance-content, .entrance-sidebar {
-    flex: 1 1 100%;
-  }
-}
-
-
-
-
-
-
-footer {
-  background-color: #111;
-  color: #eee;
-  font-family: "Poppins", sans-serif;
-  line-height: 1.7;
-}
-
-/* Footer Container */
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  padding: 80px 60px 50px;
-}
-
-/* Column Titles */
-.footer-column h3 {
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-/* Underline for titles */
-.footer-column h3::after {
-  content: "";
-  display: block;
-  width: 300px;
-  height: 3px;
-  background: #ea2e2e; /* your blue-purple color */
-  margin-top: 8px;
-}
-
-/* Column text and links */
-.footer-column p {
-  color: #ccc;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.footer-column a {
-  color: #ccc;
-  text-decoration: none;
-  transition: 0.3s;
-  display: inline-block;
-}
-
-.footer-column a:hover {
-  color:white;
-}
-
-/* Logo */
-.footer-logo {
-  width: 140px;
-  margin-bottom: 20px;
-}
-
-/* Lists */
-.footer-column ul {
-  list-style: none;
-}
-
-.footer-column ul li {
-  margin-bottom: 8px;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-  background: #0a0a0a;
-  border-top: 1px solid #222;
-  padding: 20px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* Social Icons */
-.social-icons a {
-  color:rgb(58, 170, 58);
-  font-size: 16px;
-  margin-left: 20px;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  color: white;
-  transform: scale(1.2);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    padding: 60px 30px 40px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-}
-</style>
+  </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
+  <!-- TOPBAR -->
   <section class="topbar">
     <div class="container">
       <div class="topbar-content">
-
-        <!-- LEFT SIDE -->
         <div class="topbar-left">
-          <a href="mailto:noshahidevelopersinc@gmail.com">
-            <i class="fas fa-envelope"></i> noshahidevelopersinc@gmail.com
-          </a>
-          <a href="tel:03075071297">
-            <i class="fas fa-phone-alt"></i> 0307 5071297
-          </a>
+          <a href="mailto:noshahidevelopersinc@gmail.com"><i class="fas fa-envelope"></i> noshahidevelopersinc@gmail.com</a>
+          <a href="tel:03075071297"><i class="fas fa-phone-alt"></i> 0307 5071297</a>
         </div>
-
-        <!-- RIGHT SIDE -->
         <div class="topbar-right">
-          <a href="#">Alumni</a>
-          <a href="#">Calendar</a>
-          <a href="#">Students Portal</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="student-portal.html">Students Portal</a>
         </div>
-
       </div>
     </div>
   </section>
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="navbar-container">
 
-    <!-- LOGO -->
-    <div class="navbar-logo">
-      <a href="#"><img src="img/logo.jpg"  alt="">
-      </a>
-  
-    </div>
- <!-- MENU -->
- <ul class="navbar-menu">
-  <li><a href="index.html">Home</a></li>
-  <li class="academics">
-  <a href="#">Academics</a>
-  <div class="mega-dropdown">
-    
-    <div class="mega-section">
-      <h4>School of Law</h4>
-      <a href="#">LLB (Hons)</a>
-      <a href="#">CertHE Common Law</a>
-     
-    </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <img src="img/Noshahi Group of College logo.svg" alt="Logo">
+        <div>
+          <span class="college-name">Noshahi Group of Colleges</span>
+          <span class="college-tagline">Inspiring Minds, Building Futures</span>
+        </div>
+      </div>
 
-    <div class="mega-section">
-      <h4>School of Economics & Management</h4>
-      <a href="#">BSc. Management & Digital Innovation</a>
-      <a href="#">BSc. Management & Digital Innovation</a>
-      <a href="#">BSc. Economics and Management</a>
-      <a href="#">BSc. Economics</a>
-      <a href="#">BSc. Accounting and Finance</a>
-      <a href="#">BSc. International Relations</a>
-      <a href="#">Certificate of Higher Education in Social Sciences</a>
-      <a href="#">International Foundation Programme</a>
-    </div>
-   
-    <div class="mega-section">
-      <h4>School of Business Administration</h4>
-      <a href="#">BSc. Business Administration</a>
-      <a href="#">CertHE Business Administration</a>
-      
-    </div>
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
 
-    <div class="mega-section">
-      <h4>GCE A Level</h4>
-      <a href="#">A-Level Programme</a>
- 
-    </div>
-
-  </div>
-</li>
-
-     <!-- Admissions Dropdown -->
-     <li>
-      <a href="#">Admissions</a>
-      <ul class="dropdown">
-        <li><a href="#">Apply Online</a></li>
-        <li><a href="#">Entrance Requirements</a></li>
-        <li><a href="#">Fee Structures</a></li>
-        <li><a href="#">FAQ's</a></li>
-      </ul>
-    </li>
-
-    <!-- Faculty Dropdown -->
-    <li>
-      <a href="#">Faculty</a>
-      <ul class="dropdown">
-        <li><a href="#">GCE A-Level</a></li>
-        <li><a href="#">School of Eco. & Mgmt.</a></li>
-        <li><a href="#">School of Law</a></li>
-      </ul>
-    </li>
-
-    <li><a href="life at NGC.html">Life at NGC</a></li>
-
-    <!-- About Us Dropdown -->
-    <li>
-      <a href="#">About Us</a>
-      <ul class="dropdown">
-        <li><a href="#">Our History</a></li>
-        <li><a href="#">Message from the Director</a></li>
-      </ul>
-    </li>
-
-    <li><a href="#">Contact Us</a></li>
-  </ul>
-  </div>
-</nav>
-
-
-
-<!-- Footer Start -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <!-- Column 1: Contact Info -->
-    <div class="footer-column">
-      <img src="upload/footer-logo.png" alt="UCL Logo" class="footer-logo">
-      <p>
-        1.5 km from Thokar Niaz Baig,<br>
-        Raiwind Road, Lahore, Pakistan
-      </p>
-      <p>
-        +92 42 35963335-7, +92 305 5388775, +92 333 4792170<br>
-        <a href="mailto:info@ucl.edu.pk">info@ngc.edu.pk</a><br>
-        <a href="mailto:admissions@ucl.edu.pk">admissions@ngc.edu.pk</a>
-      </p>
-    </div>
-
-    <!-- Column 2: Our Campus -->
-    <div class="footer-column">
-      <h3>Our Campus</h3>
-      <ul>
-        <li><a href="director-msg.html">Director's Message</a></li>
-        <li><a href="our-campus.html#library">Libraries</a></li>
-        <li><a href="our-campus.html#sports">Sports Facilities</a></li>
-        <li><a href="our-campus.html#comp-lab">Computer Labs</a></li>
-        <li><a href="our-campus.html#sci-lab">Science Labs</a></li>
+      <!-- Menu -->
+      <ul class="navbar-menu" id="navbarMenu">
+        <li><a href="index.html">Home</a></li>
+        <li class="academics">
+          <a href="#">Academics</a>
+          <ul class="mega-dropdown">
+            <li><a href="metric.html">Matric</a></li>
+            <li><a href="intermediate.html">Intermediate</a></li>
+            <li><a href="undergraduate.html">Undergraduate</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Admissions</a>
+          <ul class="dropdown">
+            <li><a href="application-login.html">Apply Online</a></li>
+            <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
+            <li><a href="fee-structure.html">Fee Structures</a></li>
+          </ul>
+        </li>
+        <li><a href="life-at-NGC.html">Life at NGC</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
+  </nav>
 
-    <!-- Column 3: Life at UCL -->
-    <div class="footer-column">
-      <h3>Life at UCL</h3>
-      <ul>
-        <li><a href="life-at-ucl.html#welfare">NGC Welfare Society</a></li>
-        <li><a href="life-at-ucl.html#sports">NGC Sports Society</a></li>
-        <li><a href="life-at-ucl.html#adventure">NGC Adventure Society</a></li>
-        <li><a href="life-at-ucl.html#dramatics">NGC Dramatics Society</a></li>
-        <li><a href="life-at-ucl.html#debating">NGC Mooting/Debating Society</a></li>
-      </ul>
-    </div>
+  <!-- JS for Active Links, Mobile Menu & Dropdowns -->
+  <script>
+    const currentLocation = window.location.href;
+    const menuItems = document.querySelectorAll('.navbar-menu a');
 
-    <!-- Column 4: Academics -->
-    <div class="footer-column">
-      <h3>Academics</h3>
-      <ul>
-        <li><a href="timetables.html">Timetables</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="https://lms.ucl.edu.pk/ucl/#/login" target="_blank">Apply for Admissions</a></li>
-      </ul>
-    </div>
+    menuItems.forEach(link => {
+      if (link.href === currentLocation) link.classList.add('active');
+    });
 
-  </div>
+    // Mobile Menu Slide
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("navbarMenu");
 
-  <!-- Copyright Area -->
-  <div class="footer-bottom">
-    <p>© 2024 Universal College Lahore</p>
+    hamburger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      hamburger.firstElementChild.classList.toggle("fa-bars");
+      hamburger.firstElementChild.classList.toggle("fa-times");
+    });
 
-    <div class="social-icons">
-      <a href="https://www.facebook.com/UCLLahore/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.linkedin.com/company/university-college-lahore/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.instagram.com/ucl_universalcollegelahore" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-</footer>
-<!-- Footer End -->
+    // Mobile Dropdown Toggle
+    const mobileDropdowns = menu.querySelectorAll("li > a");
+    mobileDropdowns.forEach(link => {
+      link.addEventListener("click", (e) => {
+        const submenu = link.nextElementSibling;
+        if(submenu && window.innerWidth <= 992){
+          e.preventDefault();
+          submenu.classList.toggle("active");
+        }
+      });
+    });
+  </script>
 
+  <!-- Include the rest of your page sections here: parallax-section, contact sections, map, social, footer, etc. -->
+</body>
+</html>

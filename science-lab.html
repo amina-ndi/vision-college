@@ -357,6 +357,84 @@
   border-right: none; /* آخری والے پر لائن نہ ہو */
 }
 
+
+/* HAMBURGER BUTTON */
+.hamburger {
+right: 20px; 
+position: absolute;
+ display: none;
+  font-size: 28px;
+  color: #0b2d6b;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* SHOW HAMBURGER ON MOBILE */
+@media (max-width: 992px) {
+  .hamburger { display: block; }
+  .navbar-menu { display: none; }
+}
+
+/* MOBILE SLIDE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+  padding: 30px 20px;
+  transition: right 0.4s ease;
+  z-index: 2000;
+}
+
+.mobile-menu ul {
+  list-style: none;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  color: #0b2d6b;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.close-btn {
+  font-size: 25px;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #0b2d6b;
+}
+
+/* DROPDOWN (MOBILE) */
+.dropdown-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #0b2d6b;
+  border-bottom: 1px solid #e3e3e3;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  padding-left: 15px;
+}
+.mobile-menu a.active,
+.mobile-menu .dropdown-btn.active {
+  color: #d22b2b;        /* highlight color */
+  font-weight: 600;      /* bold text */
+}
+
+
     /* ===== Hero Section ===== */
     .hero {
   position: relative;
@@ -682,6 +760,75 @@ footer {
           <span class="college-tagline">Inspiring Minds, Building Futures</span>
         </div>
       </div>
+      <!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="close-btn" onclick="closeMenu()">
+    <i class="fas fa-times"></i>
+  </div>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+
+    <li>
+      <button class="dropdown-btn">Academics ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="metric.html">Matric</a></li>
+        <li><a href="intermediate.html">Intermediate</a></li>
+        <li><a href="undergraduate.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn">Admissions ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="application-login.html">Apply Online</a></li>
+        <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
+        <li><a href="fee-structure.html">Fee Structures</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn">Faculty ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="matric-faculty.html">Matric</a></li>
+        <li><a href="inter-faculty.html">Intermediate</a></li>
+        <li><a href="undergraduate-faculty.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li><a href="life-at-NGC.html">Life at NGC</a></li>
+    <li>
+      <button class="dropdown-btn">About Us ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="our-history.html">Our History</a></li>
+        <li><a href="massege-director.html"> Massegege from the Director</a></li>
+      </ul>
+    </li>    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</div>
+
+<!-- HAMBURGER BUTTON (MOBILE) -->
+<div class="hamburger" onclick="openMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+<script>
+  function openMenu() {
+    document.getElementById("mobileMenu").style.right = "0";
+  }
+
+  function closeMenu() {
+    document.getElementById("mobileMenu").style.right = "-280px";
+  }
+
+  // Dropdown Toggle (Mobile)
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  dropdownButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const dropdown = btn.nextElementSibling;
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
  <!-- MENU -->
  <ul class="navbar-menu">
   <li><a href="index.html">Home</a></li>
@@ -740,7 +887,33 @@ footer {
   </ul>
   </div>
 </nav>
+
 <script>
+
+
+// Mobile menu active link
+const mobileLinks = document.querySelectorAll('.mobile-menu a');
+const mobileDropdowns = document.querySelectorAll('.mobile-menu .dropdown-btn');
+const currentPage = window.location.pathname.split("/").pop(); // current file name
+
+// Links
+mobileLinks.forEach(link => {
+  if(link.getAttribute('href') === currentPage) {
+    link.classList.add('active');
+  }
+});
+
+// Dropdown buttons: highlight if any of its child links is active
+mobileDropdowns.forEach(btn => {
+  const dropdown = btn.nextElementSibling;
+  if(dropdown) {
+    const activeChild = dropdown.querySelector('a.active');
+    if(activeChild) {
+      btn.classList.add('active');
+    }
+  }
+});
+
   const currentLocation = window.location.href;
   const menuItems = document.querySelectorAll('.navbar-menu a');
 
@@ -750,6 +923,7 @@ footer {
     }
   });
 </script>
+
   <!-- HERO -->
   <section class="hero">
     <div class="content">

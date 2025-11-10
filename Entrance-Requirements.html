@@ -18,16 +18,11 @@
     }
 
     body {
-      color: var(--text-dark);
-      background: #fff;
+      background-color: #fff;
+      color: #333;
       line-height: 1.7;
     }
-    :root {
-      --primary-blue: #0b2d6b;
-      --accent-red: #d22b2b;
-      --light-gray: #f8f8f8;
-      --text-dark: #333;
-    }
+
 
     /* TOPBAR STYLING */
     .topbar {
@@ -363,7 +358,82 @@
 }
 
 
+/* HAMBURGER BUTTON */
+.hamburger {
+right: 20px; 
+position: absolute;
+ display: none;
+  font-size: 28px;
+  color: #0b2d6b;
+  cursor: pointer;
+  margin-left: auto;
+}
 
+/* SHOW HAMBURGER ON MOBILE */
+@media (max-width: 992px) {
+  .hamburger { display: block; }
+  .navbar-menu { display: none; }
+}
+
+/* MOBILE SLIDE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+  padding: 30px 20px;
+  transition: right 0.4s ease;
+  z-index: 2000;
+}
+
+.mobile-menu ul {
+  list-style: none;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  color: #0b2d6b;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.close-btn {
+  font-size: 25px;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #0b2d6b;
+}
+
+/* DROPDOWN (MOBILE) */
+.dropdown-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #0b2d6b;
+  border-bottom: 1px solid #e3e3e3;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  padding-left: 15px;
+}
+
+.mobile-menu a.active,
+.mobile-menu .dropdown-btn.active {
+  color: #d22b2b;        /* highlight color */
+  font-weight: 600;      /* bold text */
+}
  /* HERO SECTION */
  .hero {
       background: linear-gradient(rgba(11,45,107,0.8), rgba(11,45,107,0.8)), url('img/college-building.jpg') center/cover no-repeat;
@@ -545,22 +615,25 @@
 
 
 
-footer {
+    footer {
   background-color: #111;
   color: #eee;
   font-family: "Poppins", sans-serif;
   line-height: 1.7;
+  width: 100%;
 }
 
-/* Footer Container */
+/* ===== FOOTER CONTAINER ===== */
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 40px;
   padding: 80px 60px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Column Titles */
+/* ===== COLUMN TITLES ===== */
 .footer-column h3 {
   font-size: 18px;
   color: #fff;
@@ -568,17 +641,16 @@ footer {
   position: relative;
 }
 
-/* Underline for titles */
 .footer-column h3::after {
   content: "";
   display: block;
-  width: 100px;
+  width: 80px;
   height: 3px;
-  background: #ea2e2e; /* your blue-purple color */
+  background: #ea2e2e;
   margin-top: 8px;
 }
 
-/* Column text and links */
+/* ===== TEXT & LINKS ===== */
 .footer-column p {
   color: #ccc;
   font-size: 14px;
@@ -593,16 +665,17 @@ footer {
 }
 
 .footer-column a:hover {
-  color:white;
+  color: white;
+  transform: translateX(3px);
 }
 
-/* Logo */
+/* ===== LOGO ===== */
 .footer-logo {
   width: 140px;
   margin-bottom: 20px;
 }
 
-/* Lists */
+/* ===== LISTS ===== */
 .footer-column ul {
   list-style: none;
 }
@@ -611,7 +684,7 @@ footer {
   margin-bottom: 8px;
 }
 
-/* Footer Bottom */
+/* ===== BOTTOM BAR ===== */
 .footer-bottom {
   background: #0a0a0a;
   border-top: 1px solid #222;
@@ -620,12 +693,18 @@ footer {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* Social Icons */
+.footer-bottom p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* ===== SOCIAL ICONS ===== */
 .social-icons a {
-  color:rgb(58, 170, 58);
-  font-size: 16px;
+  color: rgb(58, 170, 58);
+  font-size: 18px;
   margin-left: 20px;
   transition: 0.3s;
 }
@@ -635,21 +714,54 @@ footer {
   transform: scale(1.2);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ===== TABLET RESPONSIVE ===== */
+@media (max-width: 992px) {
   .footer-container {
-    padding: 60px 30px 40px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 60px 40px 40px;
+  }
+
+  .footer-column h3::after {
+    width: 60px;
+  }
+
+  .social-icons a {
+    margin-left: 15px;
+    font-size: 17px;
+  }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+    padding: 50px 25px 30px;
+  }
+
+  .footer-column h3::after {
+    margin: 8px auto 0;
   }
 
   .footer-bottom {
     flex-direction: column;
     text-align: center;
-    gap: 15px;
+    padding: 20px 30px;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    margin: 0 12px;
   }
 }
 </style>
 </head>
 <body>
+
 
   <!-- TOP BAR -->
   <section class="topbar">
@@ -688,6 +800,75 @@ footer {
           <span class="college-tagline">Inspiring Minds, Building Futures</span>
         </div>
       </div>
+      <!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="close-btn" onclick="closeMenu()">
+    <i class="fas fa-times"></i>
+  </div>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+
+    <li>
+      <button class="dropdown-btn">Academics ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="metric.html">Matric</a></li>
+        <li><a href="intermediate.html">Intermediate</a></li>
+        <li><a href="undergraduate.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn active">Admissions ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="application-login.html">Apply Online</a></li>
+        <li><a href="Entrance-Requirements.html" class="active">Entrance Requirements</a></li>
+        <li><a href="fee-structure.html">Fee Structures</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button class="dropdown-btn">Faculty ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="matric-faculty.html">Matric</a></li>
+        <li><a href="inter-faculty.html">Intermediate</a></li>
+        <li><a href="undergraduate-faculty.html">Undergraduate</a></li>
+      </ul>
+    </li>
+
+    <li><a href="life-at-NGC.html">Life at NGC</a></li>
+    <li>
+      <button class="dropdown-btn">About Us ▼</button>
+      <ul class="dropdown-content">
+        <li><a href="our-history.html">Our History</a></li>
+        <li><a href="massege-director.html"> Massegege from the Director</a></li>
+      </ul>
+    </li>    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</div>
+
+<!-- HAMBURGER BUTTON (MOBILE) -->
+<div class="hamburger" onclick="openMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+<script>
+  function openMenu() {
+    document.getElementById("mobileMenu").style.right = "0";
+  }
+
+  function closeMenu() {
+    document.getElementById("mobileMenu").style.right = "-280px";
+  }
+
+  // Dropdown Toggle (Mobile)
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  dropdownButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const dropdown = btn.nextElementSibling;
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
  <!-- MENU -->
  <ul class="navbar-menu">
   <li><a href="index.html">Home</a></li>
@@ -858,25 +1039,22 @@ footer {
 
 
 
- 
- <!-- Footer Start -->
- <footer class="footer">
+<!-- ===== FOOTER START ===== -->
+<footer class="footer">
   <div class="footer-container">
 
-    <!-- Column 1: Contact Info -->
+    <!-- Column 1 -->
     <div class="footer-column">
       <img src="img/logo-footer.jpg" alt="NGC Logo" class="footer-logo">
-      <p>
-        Toba Tek Singh District, Punjab, Pakistan
-      </p>
+      <p>Toba Tek Singh District, Punjab, Pakistan</p>
       <p>
         +92 30751297<br>
-        <a href="mailto:info@ucl.edu.pk">info@ngc.edu.pk</a><br>
-        <a href="mailto:admissions@ucl.edu.pk">admissions@ngc.edu.pk</a>
+        <a href="mailto:info@ngc.edu.pk">info@ngc.edu.pk</a><br>
+        <a href="mailto:admissions@ngc.edu.pk">admissions@ngc.edu.pk</a>
       </p>
     </div>
 
-    <!-- Column 2: Our Campus -->
+    <!-- Column 2 -->
     <div class="footer-column">
       <h3>Our Campus</h3>
       <ul>
@@ -888,17 +1066,17 @@ footer {
       </ul>
     </div>
 
-    <!-- Column 3: Life at UCL -->
+    <!-- Column 3 -->
     <div class="footer-column">
       <h3>Life at NGC</h3>
       <ul>
         <li><a href="life-at-NGC.html#Welfare Society">NGC Welfare Society</a></li>
         <li><a href="life-at-NGC.html#Sports Society">NGC Sports Society</a></li>
-        <li><a href="life-at-ucl.html#adventure">NGC Adventure Society</a></li>
+        <li><a href="life-at-NGC.html#adventure">NGC Adventure Society</a></li>
       </ul>
     </div>
 
-    <!-- Column 4: Academics -->
+    <!-- Column 4 -->
     <div class="footer-column">
       <h3>Academics</h3>
       <ul>
@@ -910,10 +1088,9 @@ footer {
 
   </div>
 
-  <!-- Copyright Area -->
+  <!-- Bottom Bar -->
   <div class="footer-bottom">
     <p>© 2024 Noshahi Group Of Colleges</p>
-
     <div class="social-icons">
       <a href="https://www.facebook.com/UCLLahore/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
       <a href="https://www.linkedin.com/company/university-college-lahore/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -921,4 +1098,4 @@ footer {
     </div>
   </div>
 </footer>
-<!-- Footer End -->
+<!-- ===== FOOTER END ===== -->

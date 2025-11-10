@@ -7,148 +7,179 @@
   <link rel="stylesheet" href="timetable.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>/* ====== General Styling ====== */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: #f3f6fb;
-      color: #222;
-    }
-    
-    /* ====== Hero Section ====== */
-    .hero {
-      background: url('img/college-bg.jpg') center/cover no-repeat;
-      height: 300px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .overlay {
-      background: rgba(11, 45, 107, 0.85);
-      color: white;
-      padding: 40px 60px;
-      text-align: center;
-      border-radius: 10px;
-    }
-    .overlay h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-    .overlay p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
-    
-    /* ====== Tabs ====== */
-    .tab-section {
-      text-align: center;
-      margin: 40px 0 20px;
-    }
-    .tab-buttons {
-      display: inline-flex;
-      background: white;
-      border-radius: 50px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .tab {
-      border: none;
-      outline: none;
-      background: transparent;
-      color: #0b2d6b;
-      font-weight: 600;
-      padding: 12px 30px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .tab.active, .tab:hover {
-      background: #d22b2b;
-      color: white;
-    }
-    
-    /* ====== Table Section ====== */
-    .tables-container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-    .table-box {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    .table-box.active {
-      display: block;
-    }
-    .table-box h2 {
-      text-align: center;
-      color: #0b2d6b;
-      font-size: 26px;
-      margin-bottom: 20px;
-    }
-    .table-wrapper {
-      overflow-x: auto;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    th {
-      background: #0b2d6b;
-      color: white;
-      padding: 12px;
-      text-transform: uppercase;
-    }
-    td {
-      padding: 10px;
-      border-bottom: 1px solid #eee;
-    }
-    tr:hover td {
-      background: #f9f9f9;
-    }
-    
-    /* ====== Buttons ====== */
-    .actions {
-      text-align: center;
-      margin: 40px 0 60px;
-    }
-    .btn {
-      border: none;
-      padding: 12px 25px;
-      margin: 5px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .print {
-      background: #0b2d6b;
-      color: white;
-    }
-    .download {
-      background: #d22b2b;
-      color: white;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-    
-    /* ====== Animations ====== */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* ====== Responsive ====== */
-    @media (max-width: 768px) {
-      .overlay h1 { font-size: 28px; }
-      .tab { padding: 10px 20px; font-size: 14px; }
-      table { font-size: 14px; }
-    }
+ /* ====== General Styling ====== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f3f6fb;
+  color: #222;
+}
+
+/* ====== Hero Section ====== */
+.hero {
+  background: url('img/college-bg.jpg') center/cover no-repeat;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.overlay {
+  background: rgba(11, 45, 107, 0.85);
+  padding: 35px 50px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+}
+.overlay h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.overlay p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* ====== Tabs ====== */
+.tab-section {
+  text-align: center;
+  margin: 35px 0 15px;
+}
+
+.tab-buttons {
+  display: inline-flex;
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  padding: 12px 28px;
+  color: #0b2d6b;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.tab.active,
+.tab:hover {
+  background: #d22b2b;
+  color: white;
+}
+
+/* ====== Table Section ====== */
+.tables-container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 20px;
+}
+
+.table-box {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+.table-box.active {
+  display: block;
+}
+.table-box h2 {
+  text-align: center;
+  color: #0b2d6b;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Table Scroll Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  scrollbar-width: thin;
+}
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #0b2d6b;
+  border-radius: 10px;
+}
+
+/* Table Design */
+table {
+  min-width: 700px;
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+th {
+  background: #0b2d6b;
+  color: white;
+  padding: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+tr:hover td {
+  background: #f9f9f9;
+}
+
+/* ====== Buttons ====== */
+.actions {
+  text-align: center;
+  margin: 40px 0 50px;
+}
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 5px;
+  transition: 0.3s;
+}
+.print { background: #0b2d6b; color: white; }
+.download { background: #d22b2b; color: white; }
+.btn:hover { transform: translateY(-2px); }
+
+/* ====== Animations ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Responsive ====== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .overlay { padding: 25px 35px; }
+  .overlay h1 { font-size: 26px; }
+  .tab { padding: 10px 18px; font-size: 14px; }
+  table { font-size: 14px; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero { height: auto; padding: 50px 15px; }
+  .overlay { width: 100%; padding: 22px 18px; }
+  .overlay h1 { font-size: 22px; }
+  .overlay p { font-size: 14px; }
+
+  .tab-buttons { flex-wrap: wrap; border-radius: 10px; }
+  .tab { width: 100%; padding: 10px; }
+
+  .actions { padding: 0 15px; }
+  .btn { width: 100%; }
+}
+
     </style>
 </head>
 <body>
