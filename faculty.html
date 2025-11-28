@@ -489,196 +489,221 @@
   color: #d22b2b;        /* highlight color */
   font-weight: 600;      /* bold text */
 }
+/* COLORS - VISION COLLEGE */
 :root {
-  --primary-blue: #800000;   /* Maroon */
-  --accent-red: #c04000;     /* Orange */
-  --light-gray: #f8f8f8;     /* Light gray background */
+  --maroon: #7a0f0f;
+  --orange: #ff7a00;
+  --light-bg: #f6f3f3;
 }
 
-/* HERO SECTION */
+
+
+/* HERO */
 .hero {
-  background: linear-gradient(rgba(128,0,0,0.8), rgba(192,64,0,0.8)), url('img/college-building.jpg') center/cover no-repeat;
-  color: #fff;
+  height: 45vh;
+  background: linear-gradient(rgba(122,15,15,0.8), rgba(255,122,0,0.7)),
+  url("https://i.ibb.co/6J3g9mw/college-building.jpg") center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 100px 20px;
+  color: white;
+  padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size: 45px;
   font-weight: 700;
-  color: #ffa500; /* bright accent for hero title */
 }
 
-.hero p {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #fff5e6;
-}
-
-/* SECTION WRAPPER */
-section {
-  padding: 70px 10%;
-}
-
-section h2 {
+/* TITLE */
+.section-title {
+  padding: 40px 20px;
   text-align: center;
-  color: var(--primary-blue);
-  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  color: var(--maroon);
   font-size: 32px;
   font-weight: 700;
-  position: relative;
 }
 
-section h2::after {
-  content: "";
-  width: 80px;
-  height: 4px;
-  background: var(--accent-red);
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 2px;
+/* TABS */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 25px;
 }
 
-/* ADMISSION CRITERIA */
-.criteria-container {
+.tab {
+  padding: 10px 20px;
+  border: none;
+  background: var(--maroon);
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.tab:hover,
+.tab.active {
+  background: var(--orange);
+}
+
+/* FACULTY GRID */
+.faculty-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
+  padding: 30px 20px;
 }
 
-.criteria-card {
-  background: var(--light-gray);
-  padding: 25px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  border-top: 5px solid var(--primary-blue);
-}
-
-.criteria-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.criteria-card h3 {
-  color: var(--primary-blue);
-  margin-bottom: 10px;
-  font-size: 22px;
-}
-
-.criteria-card ul {
-  list-style: none;
-}
-
-.criteria-card ul li {
-  padding: 5px 0;
-}
-
-.criteria-card ul li::before {
-  content: "✔";
-  color: var(--accent-red);
-  margin-right: 8px;
-}
-
-/* DOCUMENTS SECTION */
-.documents ul {
-  list-style: none;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.documents ul li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-}
-
-.documents ul li::before {
-  content: "📄";
-  margin-right: 10px;
-}
-
-/* ADMISSION PROCESS */
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+.faculty-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
   text-align: center;
-}
-
-.step {
-  padding: 25px;
-  background: var(--light-gray);
-  border-radius: 10px;
+  border-top: 6px solid var(--maroon);
+  border-bottom: 6px solid var(--orange);
   transition: 0.3s;
 }
 
-.step:hover {
-  background: #fff0e6; /* light hover with orange tint */
-  transform: translateY(-5px);
+.faculty-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
 }
 
-.step i {
-  font-size: 36px;
-  color: var(--accent-red);
-  margin-bottom: 15px;
+.faculty-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--orange);
 }
 
-.step h4 {
-  color: var(--primary-blue);
-  margin-bottom: 10px;
-}
-
-/* IMPORTANT DATES */
-.dates {
-  max-width: 700px;
-  margin: 0 auto;
-  background: var(--light-gray);
-  border-radius: 10px;
-  padding: 25px;
-}
-
-.dates li {
-  margin: 10px 0;
-}
-
-.dates li span {
-  font-weight: 600;
-  color: var(--primary-blue);
-}
-
-/* CONTACT SECTION */
-.contact {
+/* WHY CHOOSE US */
+.why-us {
+  background: var(--light);
+  padding: 50px 20px;
   text-align: center;
 }
 
-.contact p {
-  font-size: 16px;
-  margin-bottom: 15px;
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
 }
 
-.contact a.btn {
-  background: var(--primary-blue);
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
+.why-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 5px solid var(--maroon);
 }
 
-.contact a.btn:hover {
-  background: var(--accent-red);
+/* ACHIEVEMENTS */
+.achievements {
+  padding: 50px 20px;
+  text-align: center;
 }
 
-/* RESPONSIVE */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  padding-top: 30px;
+}
+
+.ach-card {
+  background: var(--maroon);
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.ach-card h3 {
+  font-size: 40px;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+/* ===========================
+   📱 FULL MOBILE RESPONSIVE
+   =========================== */
+
+/* Mobile screens under 768px */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 30px; }
-  .hero p { font-size: 16px; }
+  .hero h1 {
+    font-size: 32px;
+    padding: 0 10px;
+  }
+
+  .tabs {
+    gap: 8px;
+  }
+
+  .tab {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+  .faculty-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .faculty-card {
+    padding: 18px;
+  }
+
+  .ach-card h3 {
+    font-size: 32px;
+  }
 }
 
+/* Extra-small screens (Phones under 480px) */
+@media (max-width: 480px) {
+  .hero {
+    height: 35vh;
+  }
 
+  .hero h1 {
+    font-size: 26px;
+  }
 
-    footer {
+  .section-title h2 {
+    font-size: 26px;
+  }
+
+  .tab {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faculty-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .why-grid,
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ach-card h3 {
+    font-size: 28px;
+  }
+}
+
+footer {
       background-color: #111;
       color: #eee;
   font-family: "Poppins", sans-serif;
@@ -777,22 +802,6 @@ section h2::after {
   transform: scale(1.2);
 }
 
-/* ===== TABLET RESPONSIVE ===== */
-@media (max-width: 992px) {
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 60px 40px 40px;
-  }
-
-  .footer-column h3::after {
-    width: 60px;
-  }
-
-  .social-icons a {
-    margin-left: 15px;
-    font-size: 17px;
-  }
-}
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 600px) {
@@ -821,7 +830,6 @@ section h2::after {
     margin: 0 12px;
   }
 }
-
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
@@ -850,8 +858,6 @@ section h2::after {
 </head>
 <body>
 
-
- 
 <!-- TOP BAR -->
 <section class="topbar">
   <div class="container">
@@ -863,7 +869,7 @@ section h2::after {
           <i class="fas fa-envelope"></i> visioncollegegojra@gmail.com
         </a>
         <a href="tel:03074800049">
-          <i class="fas fa-phone-alt"></i> 0307 4800049
+          <i class="fas fa-phone-alt"></i> 0307-4800049
         </a>
       </div>
 
@@ -879,6 +885,7 @@ section h2::after {
   </div>
 </section>
 
+
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="navbar-container">
@@ -887,7 +894,7 @@ section h2::after {
       <div class="navbar-logo">
         <img src="img/vision_logo.png" alt="Logo">
         <div>
-          <span class="college-name">Vision College</span>
+          <span class="college-name">Vision College </span>
           <span class="college-tagline">Inspiring Minds, Building Futures</span>
         </div>
       </div>
@@ -910,16 +917,15 @@ section h2::after {
     </li>
 
     <li>
-      <button class="dropdown-btn active">Admissions ▼</button>
+      <button class="dropdown-btn">Admissions ▼</button>
       <ul class="dropdown-content">
-        <li><a href="Entrance-Requirements.html" class="active">Entrance Requirements</a></li>
+        <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
         <li><a href="fee-structure.html">Fee Structures</a></li>
       </ul>
     </li>
 
-    
         <li><a href="faculty.html">Faculty</a></li>
-      
+       
 
     <li><a href="life-at-VC.html">Life at VC</a></li>
     <li>
@@ -979,7 +985,7 @@ section h2::after {
 
      <!-- Admissions Dropdown -->
      <li>
-      <a href="#" class="active">Admissions</a>
+      <a href="#">Admissions</a>
       <ul class="dropdown">
         <li><a href="Entrance-Requirements.html">Entrance Requirements</a></li>
         <li><a href="fee-structure.html">Fee Structures</a></li>
@@ -987,9 +993,9 @@ section h2::after {
     </li>
 
     <!-- Faculty Dropdown -->
-   
+ 
         <li><a href="faculty.html">Faculty</a></li>
-     
+      
 
     <li><a href="life-at-VC.html">Life at VC</a></li>
 
@@ -1006,7 +1012,33 @@ section h2::after {
   </ul>
   </div>
 </nav>
+
 <script>
+
+
+// Mobile menu active link
+const mobileLinks = document.querySelectorAll('.mobile-menu a');
+const mobileDropdowns = document.querySelectorAll('.mobile-menu .dropdown-btn');
+const currentPage = window.location.pathname.split("/").pop(); // current file name
+
+// Links
+mobileLinks.forEach(link => {
+  if(link.getAttribute('href') === currentPage) {
+    link.classList.add('active');
+  }
+});
+
+// Dropdown buttons: highlight if any of its child links is active
+mobileDropdowns.forEach(btn => {
+  const dropdown = btn.nextElementSibling;
+  if(dropdown) {
+    const activeChild = dropdown.querySelector('a.active');
+    if(activeChild) {
+      btn.classList.add('active');
+    }
+  }
+});
+
   const currentLocation = window.location.href;
   const menuItems = document.querySelectorAll('.navbar-menu a');
 
@@ -1016,185 +1048,223 @@ section h2::after {
     }
   });
 </script>
+ <!-- HERO SECTION -->
+ <section class="hero">
+    <div class="hero-content">
+      <h1>Meet Our Faculty</h1>
+      <p>Highly Qualified, Experienced & Dedicated to Your Success.</p>
+    </div>
+  </section>
+
+  <!-- SECTION TITLE -->
+  <section class="section-title">
+    <h2>Our Professional Educators</h2>
+    <p>Select a department to explore our expert faculty members.</p>
+  </section>
+
+  <!-- TABS SECTION -->
+  <div class="tabs">
+    <button class="tab active" onclick="filterCards('all')">All</button>
+    <button class="tab" onclick="filterCards('science')">Science</button>
+    <button class="tab" onclick="filterCards('english')">English</button>
+    <button class="tab" onclick="filterCards('cs')">Computer Science</button>
+    <button class="tab" onclick="filterCards('commerce')">Commerce</button>
+    <button class="tab" onclick="filterCards('math')">Mathematics</button>
+  </div>
+
+  <!-- FACULTY GRID -->
+  <section class="faculty-grid">
+
+    <!-- 20+ FACULTY CARDS -->
+
+    <!-- SAMPLE CARD -->
+    <div class="faculty-card science">
+      <img src="img/teacher8.jpg" alt="">
+      <h3>Miss Sara Noor</h3>
+      <span class="designation">Lecturer - Science</span>
+      <p class="qualification">MSc Physics | 6 Years Experience</p>
+      <p class="subject">Teaches: Physics, General Science</p>
+    </div>
+
+    <div class="faculty-card cs">
+      <img src="img/teacher7.jpg" alt="">
+      <h3>Sir Ali Ahmed</h3>
+      <span class="designation">Lecturer - Computer Science</span>
+      <p class="qualification">MSCS | 7 Years Experience</p>
+      <p class="subject">Teaches: Programming, Web Development</p>
+    </div>
+
+    <div class="faculty-card english">
+      <img src="img/teacher8.jpg" alt="">
+      <h3>Miss Ayesha Khan</h3>
+      <span class="designation">Lecturer - English</span>
+      <p class="qualification">MA English | 5 Years Experience</p>
+      <p class="subject">Teaches: English, Literature</p>
+    </div>
+
+    <div class="faculty-card math">
+      <img src="img/teacher7.jpg" alt="">
+      <h3>Sir Muhammad Bilal</h3>
+      <span class="designation">Senior Lecturer - Mathematics</span>
+      <p class="qualification">MSc Math | 10 Years Experience</p>
+      <p class="subject">Teaches: Algebra, Calculus</p>
+    </div>
+
+    <!-- Duplicate these 4 cards with slight changes to reach 20+ -->
+    <!-- Copy-Paste for more faculty -->
+
+    <!-- 5 -->
+    <div class="faculty-card commerce">
+      <img src="img/teacher8.jpg" alt="">
+      <h3>Miss Hina Raza</h3>
+      <span class="designation">Lecturer - Commerce</span>
+      <p class="qualification">MCom | 8 Years Experience</p>
+      <p class="subject">Teaches: Accounting, Business</p>
+    </div>
 
    
- <!-- HERO -->
- <section class="hero">
-  <h1>Entrance Requirements</h1>
-  <p>Understand the eligibility and admission criteria for Vision College</p>
-</section>
 
-<!-- ADMISSION CRITERIA -->
-<section class="criteria">
-  <h2>Admission Criteria</h2>
-  <div class="criteria-container">
-    <div class="criteria-card">
-      <h3>Matric</h3>
-      <ul>
-        <li>Middle pass with required subjects</li>
-        <li>Admission based on school result and interview</li>
-        <li>Basic English, Urdu, and Mathematics required</li>
-      </ul>
+ 
+
+    <!-- Continue adding until 20+ cards -->
+    
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-us">
+    <h2>Why Choose Our Faculty?</h2>
+    <div class="why-grid">
+      <div class="why-box">⭐ Highly Qualified Teachers</div>
+      <div class="why-box">⭐ Student-Centered Learning</div>
+      <div class="why-box">⭐ Supportive Academic Environment</div>
+      <div class="why-box">⭐ Proven Board Results</div>
     </div>
+  </section>
 
-    <div class="criteria-card">
-      <h3>Intermediate (FA, FSc, ICS, I.Com)</h3>
-      <ul>
-        <li>Matriculation with at least 45% marks</li>
-        <li>Subject selection based on previous field</li>
-        <li>Admission on merit and interview</li>
-      </ul>
+  <!-- ACHIEVEMENTS -->
+  <section class="achievements">
+    <h2>Our Achievements</h2>
+    <p>We take pride in the excellence our faculty delivers every year.</p>
+    <div class="achievements-grid">
+      <div class="ach-card">
+        <h3>95%</h3>
+        <p>Annual Board Results</p>
+      </div>
+      <div class="ach-card">
+        <h3>30+</h3>
+        <p>Awards Received</p>
+      </div>
+      <div class="ach-card">
+        <h3>50+</h3>
+        <p>Experienced Teachers</p>
+      </div>
+      <div class="ach-card">
+        <h3>1500+</h3>
+        <p>Successful Students</p>
+      </div>
     </div>
+  </section>
 
-    <div class="criteria-card">
-      <h3>Undergraduate (BS Programs)</h3>
-      <ul>
-        <li>Intermediate (HSSC) or equivalent with 50% marks</li>
-        <li>Department-wise eligibility</li>
-        <li>Entry test (if applicable)</li>
-      </ul>
-    </div>
-  </div>
-</section>
+  <script>
+    function filterCards(department) {
+      let cards = document.querySelectorAll(".faculty-card");
+      let tabs = document.querySelectorAll(".tab");
 
-<!-- REQUIRED DOCUMENTS -->
-<section class="documents">
-  <h2>Required Documents</h2>
-  <ul>
-    <li>Matric / Intermediate Result Card (Photocopy)</li>
-    <li>CNIC or B-Form</li>
-    <li>2–4 Passport-size Photos</li>
-    <li>Character Certificate</li>
-    <li>Domicile (if required)</li>
-  </ul>
-</section>
+      tabs.forEach(tab => tab.classList.remove("active"));
+      event.target.classList.add("active");
 
-<!-- ADMISSION PROCESS -->
-<section class="process">
-  <h2>Admission Process</h2>
-  <div class="process-steps">
-    <div class="step">
-      <i class="fas fa-file-alt"></i>
-      <h4>Step 1</h4>
-      <p>Get the admission form (Online or from the College Office)</p>
-    </div>
-    <div class="step">
-      <i class="fas fa-edit"></i>
-      <h4>Step 2</h4>
-      <p>Fill out the form carefully and attach required documents</p>
-    </div>
-    <div class="step">
-      <i class="fas fa-user-check"></i>
-      <h4>Step 3</h4>
-      <p>Appear for the Interview / Entry Test (if applicable)</p>
-    </div>
-    <div class="step">
-      <i class="fas fa-check-circle"></i>
-      <h4>Step 4</h4>
-      <p>Check merit list and confirm your admission by submitting the fee</p>
-    </div>
-  </div>
-</section>
+      if (department === "all") {
+        cards.forEach(card => card.style.display = "block");
+        return;
+      }
 
-<!-- IMPORTANT DATES -->
-<section class="dates-section">
-  <h2>Important Dates</h2>
-  <ul class="dates">
-    <li><span>Admissions Open:</span> June 15, 2025</li>
-    <li><span>Last Date to Apply:</span> August 10, 2025</li>
-    <li><span>Entry Test (if applicable):</span> August 15, 2025</li>
-    <li><span>Orientation Day:</span> September 5, 2025</li>
-  </ul>
-</section>
-
-<!-- CONTACT -->
-<section class="contact">
-  <h2>Need Help?</h2>
-  <p>For admission queries, contact the Admission Office.</p>
-  <p>📧 <a href="mailto:visioncollegegojra@gmail.com">visioncollegegojra@gmail.com</a></p>
-  <p>📞 0307 4800049</p>
-  <a href="contact.html" class="btn">Apply for Admission</a>
-</section>
-
-
-
-<!-- ===== FOOTER START ===== -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <!-- Column 1 -->
-    <div class="footer-column">
-      <img src="img/vision_logo.png" alt="NGC Logo" class="footer-logo">
-      <p>
-        Imamia Colony Near Islamia Ground Gojra</p>
-      <p>
-        +92 3074800049<br>
-        <a href="mailto:info@visioncollegegojra.com">info@visioncollegegojra.com</a><br>
-        <a href="mailto:admissions@visioncollegegojra.com">admissions@visioncollegegojra.com</a>
-      </p>
-    </div>
-
-    <!-- Column 2 -->
-    <div class="footer-column">
-      <h3>Our Campus</h3>
-      <ul>
-        <li><a href="massege-director.html">Director's Message</a></li>
-     
-        <li><a href="Entrance-Requirements.html">Entrance-Requirements</a></li>
-        <li><a href="fee-structure.html">Fee-structure</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 3 -->
-    <div class="footer-column">
-      <h3>Life at VC</h3>
-      <ul>
-        <li><a href="life-at-VC.html">VC Welfare Society</a></li>
-        <li><a href="life-at-VC.html">VC Sports Society</a></li>
-        <li><a>VC Adventure Society</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 4 -->
-    <div class="footer-column">
-      <h3>Academics</h3>
-      <ul>
-        <li><a href="timetable.html">Timetables</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-      </ul>
-    </div>
-
-  </div>
-<!-- Back to Top Button -->
-<button id="backToTop" class="back-to-top">
-  ↑
-</button>
-<script>
-  const backToTopBtn = document.getElementById("backToTop");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.style.display = "flex";
-    } else {
-      backToTopBtn.style.display = "none";
+      cards.forEach(card => {
+        card.classList.contains(department)
+          ? card.style.display = "block"
+          : card.style.display = "none";
+      });
     }
-  });
-
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-</script>
-  <!-- Bottom Bar -->
-  <div class="footer-bottom">
-    <p>© 2024 Vision college</p>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/UCLLahore/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.linkedin.com/company/university-college-lahore/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.instagram.com/ucl_universalcollegelahore" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-</footer>
-<!-- ===== FOOTER END ===== -->
+  </script>
+    <!-- ===== FOOTER START ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+      
+          <!-- Column 1 -->
+          <div class="footer-column">
+            <img src="img/vision_logo.png" alt="Vision College Logo" class="footer-logo">
+            <p>Imamia Colony, Near Islamia Ground, Gojra</p>
+            <p>
+              +92 3074800049<br>
+              <a href="mailto:info@visioncollegegojra.com">info@visioncollegegojra.com</a><br>
+              <a href="mailto:admissions@visioncollegegojra.com">admissions@visioncollegegojra.com</a>
+            </p>
+          </div>
+      
+          <!-- Column 2 -->
+          <div class="footer-column">
+            <h3>Our Campus</h3>
+            <ul>
+              <li><a href="massege-director.html">Director's Message</a></li>
+             
+             
+              <li><a href="Entrance-Requirements.html">Entrance-Requirements</a></li>
+              <li><a href="fee-structure.html">Fee-structure</a></li>
+            </ul>
+          </div>
+      
+          <!-- Column 3 -->
+          <div class="footer-column">
+            <h3>Life at VC</h3>
+            <ul>
+              <li><a href="life-at-VC.html">VC Welfare Society</a></li>
+              <li><a href="life-at-VC.html">VC Sports Society</a></li>
+              <li><a>VC Adventure Society</a></li>
+            </ul>
+          </div>
+      
+          <!-- Column 4 -->
+          <div class="footer-column">
+            <h3>Academics</h3>
+            <ul>
+              <li><a href="timetable.html">Timetables</a></li>
+              <li><a href="calendar.html">Calendar</a></li>
+            </ul>
+          </div>
+      
+        </div>
+      <!-- Back to Top Button -->
+      <button id="backToTop" class="back-to-top">
+        ↑
+      </button>
+      <script>
+        const backToTopBtn = document.getElementById("backToTop");
+      
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTopBtn.style.display = "flex";
+          } else {
+            backToTopBtn.style.display = "none";
+          }
+        });
+      
+        backToTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+      </script>
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <p>© 2024 Vision College</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/visioncollegegojra" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/visioncollegegojra" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/visioncollegegojra" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+          
+        </div>
+      </footer>
+      <!-- ===== FOOTER END ===== -->
+</body>
+</html>

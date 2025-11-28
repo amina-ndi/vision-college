@@ -490,143 +490,112 @@
   font-weight: 600;      /* bold text */
 }
 
-.director-section {
-  padding: 60px 0;
-  background: #fff;
-  font-family: "Poppins", sans-serif;
-  color: #333;
+:root {
+  --maroon: #7a0f0f;
+  --orange: #ff7a00;
+  --light: #f9f5f5;
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.left-column {
-  flex: 1 1 35%;
-  text-align: center;
-}
-
-.right-column {
-  flex: 1 1 60%;
-}
-
-.image-box {
-  position: relative;
-  display: inline-block;
-}
-
-.image-box img {
-  width: 90%;
-  max-width: 400px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.image-box:hover img {
-  transform: scale(1.03);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
+/* HERO */
+.hero {
+  height: 40vh;
+  background: linear-gradient(rgba(122,15,15,0.85), rgba(255,122,0,0.7)),
+  url("https://i.ibb.co/6J3g9mw/college-building.jpg") center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
   color: white;
-  opacity: 0;
-  border-radius: 10px;
-  transition: opacity 0.3s ease;
+  padding: 0 20px;
 }
 
-.image-box:hover .overlay {
-  opacity: 1;
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
 }
 
-.social-icons {
-  margin: 20px 0;
+/* DIRECTOR SECTION */
+.director-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 10%;
+  background: var(--light);
 }
 
-.social-icons a {
-  font-size: 18px;
-  color: #50bd77;
-  margin: 0 10px;
-  transition: color 0.3s ease;
+.director-img-box img {
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 5px solid var(--orange);
 }
 
+.director-content {
+  max-width: 600px;
+}
 
-.contact-info p {
+.director-content h2 {
+  color: var(--maroon);
+  font-size: 32px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.director-content p {
   font-size: 16px;
-  margin: 8px 0;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #333;
 }
 
-.contact-info i {
-  color: #50bd77;
-  margin-right: 6px;
-}
-
-.right-column h2 {
-  font-size: 34px;
-  color: #161616;
-  margin-bottom: 5px;
-}
-
-.right-column .subtitle {
-  font-size: 20px;
-  color: #6c6c6c;
-  margin-bottom: 20px;
-}
-
-.highlight {
+.signature {
+  margin-top: 20px;
+  font-weight: 600;
   font-size: 18px;
-  color: #D22B2B;
-  margin-bottom: 20px;
+  color: var(--orange);
 }
 
-.divider {
-  border: none;
-  border-bottom: 3px solid #D22B2B;
-  margin: 30px 0;
-  width: 400px;
-}
-
-.education-list {
-  list-style: none;
-  padding: 0;
-}
-
-.education-list li {
-  font-size: 17px;
-  margin-bottom: 10px;
-}
-
-.education-list i {
-  color: #6b6b6b;
-  margin-right: 8px;
-}
+/* ===========================
+       MOBILE RESPONSIVE
+   =========================== */
 
 @media (max-width: 768px) {
-  .container {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .director-section {
     flex-direction: column;
-    align-items: center;
     text-align: center;
+    padding: 40px 20px;
   }
 
-  .right-column {
-    text-align: left;
-    width: 100%;
+  .director-img-box img {
+    width: 250px;
+    height: 300px;
   }
 
-  .image-box img {
-    max-width: 300px;
+  .director-content h2 {
+    font-size: 26px;
   }
 }
 
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .director-img-box img {
+    width: 200px;
+    height: 260px;
+  }
+
+  .director-content p {
+    font-size: 14px;
+  }
+}
 footer {
       background-color: #111;
       color: #eee;
@@ -815,9 +784,13 @@ footer {
 
       <!-- RIGHT SIDE -->
       <div class="topbar-right">
-        <a href="calendar.html">Calendar</a>
-        <a href="student-portal.html">Students Portal</a>
-      </div>
+       <!-- RIGHT SIDE -->
+      <div class="topbar-right">
+        <div class="social-icons">
+          <a href="https://www.facebook.com/UCLLahore/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/company/university-college-lahore/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/ucl_universalcollegelahore" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>      </div>
 
     </div>
   </div>
@@ -861,14 +834,8 @@ footer {
       </ul>
     </li>
 
-    <li>
-      <button class="dropdown-btn">Faculty ▼</button>
-      <ul class="dropdown-content">
-        <li><a href="matric-faculty.html">Matric</a></li>
-        <li><a href="inter-faculty.html">Intermediate</a></li>
-        <li><a href="undergraduate-faculty.html">Undergraduate</a></li>
-      </ul>
-    </li>
+        <li><a href="faculty.html">Faculty</a></li>
+      
 
     <li><a href="life-at-VC.html">Life at VC</a></li>
     <li>
@@ -936,15 +903,9 @@ footer {
     </li>
 
     <!-- Faculty Dropdown -->
-    <li>
-      <a href="#">Faculty</a>
-      <ul class="dropdown">
-        <li><a href="matric-faculty.html">Matric</a></li>
-        <li><a href="inter-faculty.html">Intermediate</a></li>
-        <li><a href="undergraduate-faculty.html">undergraduate</a></li>
-      </ul>
-    </li>
-
+  
+        <li><a href="faculty.html">Faculty</a></li>
+     
     <li><a href="life-at-VC.html">Life at VC</a></li>
 
     <!-- About Us Dropdown -->
@@ -970,76 +931,37 @@ footer {
     }
   });
 </script>
-<!-- ✅ Director Section -->
-<div class="director-section">
-    <div class="container">
+<!-- HERO -->
+<section class="hero">
+  <h1>Message From The Director</h1>
+</section>
 
-      <!-- Left Column -->
-      <div class="left-column">
-        <div class="image-box">
-          <a href="upload/dr-asad.jpg" target="_blank">
-            <img src="img/Adeel.jpg" alt="Adeel Noshahi">
-            <span class="overlay"><i class="fa fa-search"></i></span>
-          </a>
-        </div>
-
-        <div class="social-icons">
-          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" title="Skype"><i class="fab fa-skype"></i></a>
-          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-        </div>
-
-        <div class="contact-info">
-          <p><i class="fa fa-phone"></i>  +92 3074800049</p>
-          <p><i class="fa fa-location-arrow"></i>  
-            Imamia Colony Near Islamia Ground Gojra</p>
-        </div>
-      </div>
-
-      <!-- Right Column -->
-      <div class="right-column">
-        <h2>Message from the Director</h2>
-        <h4 class="subtitle">Adeel Noshahi</h4>
-
-        <p class="highlight">
-          At Vision College, our mission is to empower students through quality education, personal development, 
-          and strong moral values. We believe that success is achieved through a collaborative partnership 
-          between parents, students, teachers, and administration.        </p>
-
-        <hr class="divider">
-
-        <p>
-          The world today is evolving rapidly with advancements in education, technology, and global connectivity. 
-          Vision College is committed to preparing students to meet these modern challenges with confidence.
-        </p>
-
-        <p>
-          Our focus is not only on academic excellence but also on personality development. Students at Vision College 
-          are encouraged to participate in debates, dramatics, sports, welfare activities, and leadership programs.        </p>
-
-        <p>
-          We aim to build confident, responsible, and capable individuals who contribute positively to society.
-
-        </p>
-
-        <p>
-          <strong>Adeel Noshahi</strong><br>
-          Director VC
-        </p>
-
-        <hr class="divider">
-
-        <h4>Education</h4>
-        <ul class="education-list">
-          <li><i class="fa fa-dot-circle"></i> M.Phil., Education — University of Sargodha</li>
-        </ul>
-
-        <hr class="divider">
-      </div>
-
-    </div>
+<!-- MAIN CONTENT -->
+<section class="director-section">
+  
+  <div class="director-img-box">
+    <img src="https://i.ibb.co/zmYr6pJ/director.png" alt="Director Image">
   </div>
+
+  <div class="director-content">
+    <h2>Welcome to Vision College</h2>
+    <p>
+      At Vision College, our mission is to create an environment where students can grow, 
+      learn, and excel in both academic and personal development. We believe that education 
+      is a powerful tool that shapes the future, and it is our responsibility to provide the 
+      best learning experience to every student.
+    </p>
+
+    <p>
+      Our college is committed to offering quality education, modern facilities, highly 
+      experienced faculty members, and a supportive learning environment. With dedication, 
+      discipline, and hard work, every student can achieve success.
+    </p>
+
+    <p class="signature">Mirza Luqman— Director, Vision College</p>
+  </div>
+</section>
+
  <!-- Footer Start -->
  <footer class="footer">
   <div class="footer-container">
@@ -1063,10 +985,9 @@ footer {
       <h3>Our Campus</h3>
       <ul>
         <li><a href="massege-director.html">Director's Message</a></li>
-        <li><a href="">Libraries</a></li>
-        <li><a href="">Sports Facilities</a></li>
-        <li><a href="computer-lab.html">Computer Labs</a></li>
-        <li><a href="science-lab.html">Science Labs</a></li>
+      
+        <li><a href="Entrance-Requirements.html">Entrance-Requirements</a></li>
+        <li><a href="fee-structure.html">Fee-structure</a></li>
       </ul>
     </div>
 
@@ -1074,9 +995,9 @@ footer {
     <div class="footer-column">
       <h3>Life at VC</h3>
       <ul>
-        <li><a href="life-at-NGC.html#Welfare Society">VC Welfare Society</a></li>
-        <li><a href="life-at-NGC.html#Sports Society">VC Sports Society</a></li>
-        <li><a href="life-at-ucl.html#adventure">VC Adventure Society</a></li>
+        <li><a href="life-at-VC.html">VC Welfare Society</a></li>
+        <li><a href="life-at-VC.html">VC Sports Society</a></li>
+        <li><a>VC Adventure Society</a></li>
       </ul>
     </div>
 
